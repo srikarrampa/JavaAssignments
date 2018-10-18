@@ -18,16 +18,16 @@ public class FamilyTree{
 		
 	}
 	// parameterized constructor
-	FamilyTree(HashMap<Integer, ArrayList<String>> items)
-	{
-		this.items=items;
-	}	
+//	FamilyTree(HashMap<Integer, ArrayList<String>> items)
+//	{
+//		this.items=items;
+//	}	
 	
 	public static void main(String[] args) {
 		
 		
 		FamilyTree family = new FamilyTree();
-		FamilyTree family1= new FamilyTree(null);
+//		FamilyTree family1= new FamilyTree(null);
 		Scanner scan = new Scanner(System.in);
 		
 		family.computes();
@@ -101,7 +101,7 @@ public class FamilyTree{
 			int i =temp.indexOf(oldValue);
 			temp.remove(i);
 			System.out.println(temp);
-			items.replace(level, temp, temp);
+			items.put(level, temp);
 		}
 		
 		// UPDATE Function
@@ -128,8 +128,7 @@ public class FamilyTree{
 			{
 				temp.add(oldValue);
 			}
-			
-			items.replace(level, temp, temp);
+			items.put(level, temp);
 			System.out.println(items.get(level));
 			
 			
