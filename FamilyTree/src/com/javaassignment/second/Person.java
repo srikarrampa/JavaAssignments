@@ -10,7 +10,7 @@ public class Person {
 	{
 		
 	}
-	Person(int id, String firstName,String secondName,boolean isMarried )
+	public Person(int id, String firstName,String secondName,boolean isMarried )
 	{
 		this.id=id;
 		this.firstName=firstName;
