@@ -2,10 +2,10 @@ package com.javaassignment.second;
 
 public class Person {
 	
-	int id;
-	String firstName;
-	String secondName;
-	boolean isMarried;
+	private int id;
+	private String firstName;
+	private String secondName;
+	private boolean isMarried;
 	Person()
 	{
 		

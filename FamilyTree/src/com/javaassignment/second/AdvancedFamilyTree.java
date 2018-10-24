@@ -88,7 +88,7 @@ public class AdvancedFamilyTree {
 			Scanner scan = new Scanner(System.in);
 			for(Person p: temp)
 			{
-				if(p.id==ids)
+				if(p.getId()==ids)
 				{
 					temp.remove(p);
 				}
@@ -109,14 +109,14 @@ public class AdvancedFamilyTree {
 			System.out.println("--");
 			for(Person p: temp)
 			{
-				if(p.id==identify)
+				if(p.getId()==identify)
 				{
 					System.out.println("Enter updated First Name:");
-					p.firstName=scan.next();
+					p.setFirstName(scan.next());
 					System.out.println("Enter updated Second Name:");
-					p.secondName=scan.next();
+					p.setSecondName(scan.next());
 					System.out.println("Enter updated Married Status:");
-					p.isMarried=scan.nextBoolean();
+					p.setMarried(scan.nextBoolean());
 				}
 				System.out.println(p);
 				break;
@@ -146,7 +146,7 @@ public class AdvancedFamilyTree {
 				if(check.contains(temp_id))
 				{
 					System.out.println("enter a different id");
-					person.id=scan.nextInt();
+					person.setId(scan.nextInt());
 				}
 				else
 				{
