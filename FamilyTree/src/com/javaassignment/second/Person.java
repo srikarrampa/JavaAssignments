@@ -2,7 +2,7 @@ package com.javaassignment.second;
 
 public class Person {
 	
-	int id;
+	static int id;
 	String firstName;
 	String secondName;
 	boolean isMarried;
@@ -10,7 +10,7 @@ public class Person {
 	{
 		
 	}
-	public Person(int id, String firstName,String secondName,boolean isMarried )
+	Person(int id, String firstName,String secondName,boolean isMarried )
 	{
 		this.id=id;
 		this.firstName=firstName;

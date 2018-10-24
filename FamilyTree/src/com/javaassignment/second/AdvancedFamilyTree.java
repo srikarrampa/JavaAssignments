@@ -1,10 +1,10 @@
 package com.javaassignment.second;
 
-
 import java.util.*;
 
 import com.javaassignment.second.Person;
 public class AdvancedFamilyTree {
+	ArrayList<Integer> check = new ArrayList<Integer>();
 	
 	HashMap<Integer,ArrayList<Person>> items;
 	AdvancedFamilyTree()
@@ -17,7 +17,7 @@ public class AdvancedFamilyTree {
 	public static void main(String[] args) {
 		
 		// TODO Auto-generated method stub
-		Person person = new Person(0,null,null,false);
+//		Person person = new Person(0,null,null,false);
 		AdvancedFamilyTree family = new AdvancedFamilyTree();
 		
 		Scanner scan = new Scanner(System.in);
@@ -80,6 +80,7 @@ public class AdvancedFamilyTree {
 		
 	}
 
+
 		public void delete(int l,int ids) {
 			
 			ArrayList<Person> temp = new ArrayList<Person>();
@@ -140,7 +141,18 @@ public class AdvancedFamilyTree {
 			{
 				Person person = new Person();
 				System.out.println("enter the id number:");
-				person.id= scan.nextInt();
+				int temp_id= scan.nextInt();
+				//checking entered id
+				if(check.contains(temp_id))
+				{
+					System.out.println("enter a different id");
+					person.id=scan.nextInt();
+				}
+				else
+				{
+					person.id=temp_id;
+					check.add(temp_id);
+				}
 				System.out.println("enter the First Name:");
 				person.firstName=scan.next();
 				System.out.println("enter the Second Name:");
@@ -152,6 +164,8 @@ public class AdvancedFamilyTree {
 			return list ;
 			
 		}
+
+
 		//Get Function
 		public void get()  
 	    { 
