@@ -1,182 +1,26 @@
 package com.javaassignment.second;
 
 import java.util.*;
-
-import com.javaassignment.second.Person;
+import com.javaassignment.second.entity.Person;
+import com.javaassignment.second.util.Computing;
 public class AdvancedFamilyTree {
-	ArrayList<Integer> check = new ArrayList<Integer>();
 	
-	HashMap<Integer,ArrayList<Person>> items;
-	AdvancedFamilyTree()
+	static ArrayList<Integer> check ;
+	static HashMap<Integer,ArrayList<Person>> items1;
+	public AdvancedFamilyTree()
 	{
-		items = new HashMap<Integer,ArrayList<Person>>();
+		items1 = new HashMap<Integer,ArrayList<Person>>();
+		check = new ArrayList<Integer>();
 		
 	}
 	
 
 	public static void main(String[] args) {
-		
-		// TODO Auto-generated method stub
-//		Person person = new Person(0,null,null,false);
 		AdvancedFamilyTree family = new AdvancedFamilyTree();
-		
+		Computing computing = new Computing();
 		Scanner scan = new Scanner(System.in);
-		
-		family.compute();
+		computing.compute(items1,check);
 	}
-	public void compute()
-	{
-		boolean flag= true;
-		while(flag)
-		{
-			System.out.println("choose an option:");
-			System.out.println("1: post the Tree");
-			System.out.println("2: get the Tree");
-			System.out.println("3: update the value in a level");
-			System.out.println("4: delete a value in a level");
-			System.out.println("5: exit");
-			Scanner scan = new Scanner(System.in);
-			int num= scan.nextInt();
-			switch(num)
-			{
-			case 1:
-				System.out.print("enter the level in which you wish to add:");
-				int n= scan.nextInt();
-//				System.out.println(n);
-				items.put(n, posts());
-//				get(items);
-				break;
-			case 2:
-				get();
-				break;
-			case 3:
-				System.out.print("enter the level in which you wish to update a name:");
-				int level= scan.nextInt();
-				System.out.println(items.get(level));
-				System.out.print("enter the id in which you wish to update:");
-				int identify=scan.nextInt();
-//				System.out.println(level);
-//				System.out.println(items.get(level));
-				update(level,identify);
-				break;
-			case 4:
-				System.out.print("enter the level in which you wish to delete:");
-				int l= scan.nextInt();
-				System.out.print("enter the id in which you wish to delete:");
-				int ids=scan.nextInt();
-				delete(l,ids);
-				get();
-				break;
-			case 5:
-				System.out.println("Exiting....");
-				flag=false;
-				break;
-			default:
-				System.out.println("invalid option");
-				flag= true;
-				
-			}
-		}
-		
-	}
+	
 
-
-		public void delete(int l,int ids) {
-			
-			ArrayList<Person> temp = new ArrayList<Person>();
-			temp =  items.get(l);
-			Scanner scan = new Scanner(System.in);
-			for(Person p: temp)
-			{
-				if(p.getId()==ids)
-				{
-					temp.remove(p);
-				}
-				break;
-			}
-		
-			items.put(l, temp);
-	}
-
-
-	//Update Function
-		public void update(int level,int identify) 
-		{
-			
-			ArrayList<Person> temp = new ArrayList<Person>();
-			temp =  items.get(level);
-			Scanner scan = new Scanner(System.in);
-			System.out.println("--");
-			for(Person p: temp)
-			{
-				if(p.getId()==identify)
-				{
-					System.out.println("Enter updated First Name:");
-					p.setFirstName(scan.next());
-					System.out.println("Enter updated Second Name:");
-					p.setSecondName(scan.next());
-					System.out.println("Enter updated Married Status:");
-					p.setMarried(scan.nextBoolean());
-				}
-				System.out.println(p);
-				break;
-			}
-			items.put(level, temp);
-//			System.out.println(items.get(level));
-//			Person person = items.get(level);
-//			System.out.println(person.firstName);
-			
-		
-		
-		}
-
-		//Post Function
-		public ArrayList<Person> posts()
-		{
-			ArrayList<Person> list = new ArrayList<Person>();
-			Scanner scan = new Scanner(System.in);
-			System.out.println("enter the number of names you wish to add:");
-			int number = scan.nextInt();
-			for(int i=0; i<number;i++)
-			{
-				Person person = new Person(0,null,null,false);
-				System.out.println("enter the id number:");
-				int temp_id= scan.nextInt();
-				//checking entered id
-				if(check.contains(temp_id))
-				{
-					System.out.println("enter a different id");
-					person.setId(scan.nextInt());
-				}
-				else
-				{
-					person.setId(temp_id);
-					check.add(temp_id);
-				}
-				System.out.println("enter the First Name:");
-				person.setFirstName(scan.next());
-				System.out.println("enter the Second Name:");
-				person.setSecondName(scan.next());
-				System.out.println("enter the True/False if your Married:");
-				person.setMarried(scan.nextBoolean());
-				list.add(person);
-			}
-			return list ;
-			
-		}
-
-
-		//Get Function
-		public void get()  
-	    { 
-	        if (items.isEmpty())  
-	        { 
-	            System.out.println("No items in the Tree"); 
-	        } 
-	          
-	        else
-	        { 
-	            System.out.println(items); 
-	        } 
-		}
 }

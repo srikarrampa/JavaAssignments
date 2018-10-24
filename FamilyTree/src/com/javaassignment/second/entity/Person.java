@@ -1,4 +1,4 @@
-package com.javaassignment.second;
+package com.javaassignment.second.entity;
 
 public class Person {
 	
@@ -6,11 +6,11 @@ public class Person {
 	private String firstName;
 	private String secondName;
 	private boolean isMarried;
-	Person()
+	public Person()
 	{
 		
 	}
-	Person(int id, String firstName,String secondName,boolean isMarried )
+	public Person(int id, String firstName,String secondName,boolean isMarried )
 	{
 		this.id=id;
 		this.firstName=firstName;
