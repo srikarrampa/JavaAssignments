@@ -2,7 +2,7 @@ package com.javaassignment.second;
 
 public class Person {
 	
-	static int id;
+	int id;
 	String firstName;
 	String secondName;
 	boolean isMarried;
@@ -22,4 +22,29 @@ public class Person {
 	public String toString() {
 		return getClass().getSimpleName()  + "[id="+ id + "]" + "[First Name=" + firstName + "]" + "[Second Name=" + secondName + "]" + "[Married=" + isMarried + "]";
 	  }
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getSecondName() {
+		return secondName;
+	}
+	public void setSecondName(String secondName) {
+		this.secondName = secondName;
+	}
+	public boolean isMarried() {
+		return isMarried;
+	}
+	public void setMarried(boolean isMarried) {
+		this.isMarried = isMarried;
+	}
 }

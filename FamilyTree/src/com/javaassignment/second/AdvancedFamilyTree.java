@@ -139,7 +139,7 @@ public class AdvancedFamilyTree {
 			int number = scan.nextInt();
 			for(int i=0; i<number;i++)
 			{
-				Person person = new Person();
+				Person person = new Person(0,null,null,false);
 				System.out.println("enter the id number:");
 				int temp_id= scan.nextInt();
 				//checking entered id
@@ -150,15 +150,15 @@ public class AdvancedFamilyTree {
 				}
 				else
 				{
-					person.id=temp_id;
+					person.setId(temp_id);
 					check.add(temp_id);
 				}
 				System.out.println("enter the First Name:");
-				person.firstName=scan.next();
+				person.setFirstName(scan.next());
 				System.out.println("enter the Second Name:");
-				person.secondName=scan.next();
+				person.setSecondName(scan.next());
 				System.out.println("enter the True/False if your Married:");
-				person.isMarried=scan.nextBoolean();
+				person.setMarried(scan.nextBoolean());
 				list.add(person);
 			}
 			return list ;
