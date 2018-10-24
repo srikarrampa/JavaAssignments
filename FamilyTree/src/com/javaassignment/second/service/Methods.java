@@ -108,4 +108,38 @@ public class Methods{
 	}
 
 
+	public void getingLevel(HashMap<Integer, ArrayList<Person>> items1, ArrayList<Integer> check, int level_id) {
+		System.out.println(items1.get(level_id));
+	}
+
+
+	public void gettingId(HashMap<Integer, ArrayList<Person>> items1, ArrayList<Integer> check, int level_id, int ids) {
+		ArrayList<Person> temp_person= new ArrayList<Person>();
+		temp_person=items1.get(level_id);
+		boolean flag=true;
+		for(Person p: temp_person)
+		{
+			System.out.println("");
+			if(p.getId()==ids)
+			{
+				flag=false;
+				System.out.println("ID no:"+ p.getId());
+				
+				System.out.println("First Name:"+ p.getFirstName());
+				
+				System.out.println("Second Name:"+ p.getSecondName());
+				
+				System.out.println("Married Status:"+ p.isMarried());
+				
+			}
+			
+		}
+		if(flag==true)
+		{
+			System.out.println("entered id not present in level");
+		}
+		
+	}
+
+
 }

@@ -32,7 +32,14 @@ public class Computing{
 //				get(items1);
 				break;
 			case 2:
+				System.out.println("the whole tree");
 				methods.get(items1);
+				System.out.println("enter the level which you wish to print:");
+				int level_id=scan.nextInt();
+				methods.getingLevel(items1,check,level_id);
+				System.out.println("enter the id which you wish to print:");
+				int level_ids=scan.nextInt();
+				methods.gettingId(items1,check,level_id,level_ids);
 				break;
 			case 3:
 				System.out.print("enter the level in which you wish to update a name:");
