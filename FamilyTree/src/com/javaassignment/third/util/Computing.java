@@ -22,6 +22,7 @@ public class Computing{
 			System.out.println("4: delete a value in a level");
 			System.out.println("5: exit");
 			Scanner scan = new Scanner(System.in);
+			//Exception Handling
 			try
 			{
 			int num= scan.nextInt();
