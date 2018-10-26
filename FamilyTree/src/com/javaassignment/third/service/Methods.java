@@ -10,7 +10,7 @@ import com.javaassignment.third.util.Computing;
 public class Methods implements initialise{
 	
 
-	public void delete(int l,int ids,HashMap<Integer,ArrayList<Person>> items1) {
+	public void delete(int l,int ids,HashMap<Integer,ArrayList<Person>> items1,ArrayList<Integer> check) {
 		
 		ArrayList<Person> temp = new ArrayList<Person>();
 		temp = items1.get(l);
@@ -20,11 +20,12 @@ public class Methods implements initialise{
 			if(p.getId()==ids)
 			{
 				temp.remove(p);
+				int x=check.indexOf(ids);
+				check.remove(x);
 			}
 			break;
 		}
 	
-		items1.put(l, temp);
 }
 
 
@@ -77,6 +78,7 @@ public class Methods implements initialise{
 	//Post Function
 	public void posts(ArrayList<Integer> check,HashMap<Integer,ArrayList<Person>> items1,int level)
 	{
+		
 		ArrayList<Person> list= new ArrayList<Person>();
 		System.out.println("   ");
 		Scanner scan = new Scanner(System.in);

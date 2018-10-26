@@ -8,7 +8,7 @@ import com.javaassignment.third.service.Methods;
 import com.javaassignment.third.service.initialise;
 public class Computing{
 	
-	public void compute(HashMap<Integer,ArrayList<Person>> items1,ArrayList<Integer> check) {
+	public void compute(HashMap<Integer,ArrayList<Person>> items1,ArrayList<Integer> check,ArrayList<Integer> levellist) {
 		// TODO Auto-generated method stub
 		
 		initialise method = new Methods();
@@ -22,12 +22,16 @@ public class Computing{
 			System.out.println("4: delete a value in a level");
 			System.out.println("5: exit");
 			Scanner scan = new Scanner(System.in);
+			try
+			{
 			int num= scan.nextInt();
+			
 			switch(num)
 			{
 			case 1:
 				System.out.print("enter the level in which you wish to add:");
 				int n= scan.nextInt();
+				levellist.add(1);
 //				System.out.println(n);
 				method.posts(check,items1,n);
 //				get(items1);
@@ -37,10 +41,26 @@ public class Computing{
 				method.get(items1);
 				System.out.println("enter the level which you wish to print:");
 				int level_id=scan.nextInt();
-				method.getingLevel(items1,check,level_id);
+				if
+				(levellist.contains(level_id))
+				{
+					method.getingLevel(items1,check,level_id);
+				}
+				else
+				{
+					throw new MyException("Level not present");
+				}
 				System.out.println("enter the id which you wish to print:");
 				int level_ids=scan.nextInt();
-				method.gettingId(items1,check,level_id,level_ids);
+				if(check.contains(level_ids))
+				{
+					method.gettingId(items1,check,level_id,level_ids);
+				}
+				else
+				{
+					throw new MyException("ID not present");
+				}
+				
 				break;
 			case 3:
 				System.out.print("enter the level in which you wish to update a name:");
@@ -57,18 +77,35 @@ public class Computing{
 				int l= scan.nextInt();
 				System.out.print("enter the id in which you wish to delete:");
 				int ids=scan.nextInt();
-				method.delete(l,ids,items1);
-				method.get(items1);
+				if(check.contains(ids))
+				{
+					method.delete(l,ids,items1,check);
+					method.get(items1);
+				}
+				else
+				{
+					throw new MyException("ID not present");
+				}
+				
 				break;
 			case 5:
 				System.out.println("Exiting....");
 				flag=false;
 				break;
 			default:
-				System.out.println("invalid option");
-				flag= true;
+//				flag= true;
+				throw new MyException("Invalid input!");
+				
 				
 			}
+			}
+			catch(MyException string)
+			{
+				
+			}
+			
+		
+			
 		}
 		
 		

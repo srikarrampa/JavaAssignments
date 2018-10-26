@@ -12,6 +12,6 @@ public interface initialise {
 	void get(HashMap<Integer,ArrayList<Person>> items1);
 	void getingLevel(HashMap<Integer, ArrayList<Person>> items1, ArrayList<Integer> check, int level_id) ;
 	void gettingId(HashMap<Integer, ArrayList<Person>> items1, ArrayList<Integer> check, int level_id, int ids) ;
-	void delete(int l,int ids,HashMap<Integer,ArrayList<Person>> items1);
+	void delete(int l,int ids,HashMap<Integer,ArrayList<Person>> items1,ArrayList<Integer> check);
 
 }
