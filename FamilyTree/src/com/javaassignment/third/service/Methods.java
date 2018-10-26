@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import com.javaassignment.third.entity.Person;
 import com.javaassignment.third.util.Computing;
+import com.javaassignment.third.util.MyException;
 
 
 public class Methods implements initialise{
@@ -90,23 +91,37 @@ public class Methods implements initialise{
 			System.out.println("enter the id number:");
 			int temp_id= scan.nextInt();
 			//checking entered id
+			try
+			{
+				
 			if(check.contains(temp_id))
 			{
-				System.out.println("enter a different id");
-				person.setId(scan.nextInt());
+				throw new MyException("Duplicate ID,enter a different id");
+				
 			}
 			else
 			{
 				person.setId(temp_id);
 				check.add(temp_id);
 			}
-			System.out.println("enter the First Name:");
-			person.setFirstName(scan.next());
-			System.out.println("enter the Second Name:");
-			person.setSecondName(scan.next());
-			System.out.println("enter the True/False if your Married:");
-			person.setMarried(scan.nextBoolean());
-			list.add(person);
+			}
+			catch(MyException string)
+			{
+				
+			}
+			finally
+			{
+				System.out.println("enter the id to confirm");
+				person.setId(scan.nextInt());
+				System.out.println("enter the First Name:");
+				person.setFirstName(scan.next());
+				System.out.println("enter the Second Name:");
+				person.setSecondName(scan.next());
+				System.out.println("enter the True/False if your Married:");
+				person.setMarried(scan.nextBoolean());
+				list.add(person);
+			}
+			
 		}
 		items1.put(level, list);
 		
