@@ -1,14 +1,13 @@
-package com.javaassignment.second.service;
+package com.javaassignment.third.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
-import com.javaassignment.second.entity.Person;
-import com.javaassignment.second.util.Computing;
-import com.javaassignment.third.service.initialise;
+import com.javaassignment.third.entity.Person;
+import com.javaassignment.third.util.Computing;
 
 
-public class Methods {
+public class Methods implements initialise{
 	
 
 	public void delete(int l,int ids,HashMap<Integer,ArrayList<Person>> items1) {
@@ -37,7 +36,6 @@ public class Methods {
 		temp =  items1.get(level);
 		Scanner scan = new Scanner(System.in);
 		System.out.println("--");
-		System.out.println(identify);
 		for(Person p: temp)
 		{
 			if(p.getId()==identify)
@@ -49,22 +47,38 @@ public class Methods {
 				System.out.println("Enter updated Married Status:");
 				p.setMarried(scan.nextBoolean());
 			}
-			System.out.println(p);
+			else
+			{
+				System.out.println("do you wish to add in this level?");
+				boolean flag =scan.nextBoolean();
+				if(flag)
+				{
+					ArrayList<Person> list = new ArrayList<Person>(temp);
+					Person person = new Person();
+					System.out.println("Enter New ID:");
+					person.setId(scan.nextInt());
+					System.out.println("Enter New First Name:");
+					person.setFirstName(scan.next());
+					System.out.println("Enter New Second Name:");
+					person.setSecondName(scan.next());
+					System.out.println("Enter New Married Status:");
+					person.setMarried(scan.nextBoolean());
+					list.add(person);
+					items1.put(level, list);
+				}
+				
+			}
 			break;
 		}
-		items1.put(level, temp);
-//		System.out.println(items1.get(level));
-//		Person person = items1.get(level);
-//		System.out.println(person.firstName);
-		
-	
-	
+//		items1.put(level, temp);
+
 	}
 
 	//Post Function
-	public ArrayList<Person> posts(ArrayList<Integer> check)
+	public void posts(ArrayList<Integer> check,HashMap<Integer,ArrayList<Person>> items1,int level)
 	{
-		ArrayList<Person> list = new ArrayList<Person>();
+		ArrayList<Person> list= new ArrayList<Person>();
+		System.out.println("   ");
 		Scanner scan = new Scanner(System.in);
 		System.out.println("enter the number of names you wish to add:");
 		int number = scan.nextInt();
@@ -92,7 +106,8 @@ public class Methods {
 			person.setMarried(scan.nextBoolean());
 			list.add(person);
 		}
-		return list ;
+		items1.put(level, list);
+		
 		
 	}
 
@@ -143,6 +158,9 @@ public class Methods {
 		}
 		
 	}
+
+
+
 
 
 }
